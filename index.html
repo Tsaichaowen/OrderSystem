@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>線上訂單系統</title>
+</head>
+  <script>
+    const qtyInput = document.getElementById('qty');
+    const priceInput = document.getElementById('price');
+    const total = document.getElementById('total');
+    function calcTotal() {
+      total.innerText = qtyInput.value * priceInput.value;
+    }
+    qtyInput.addEventListener('input', calcTotal);
+    priceInput.addEventListener('input', calcTotal);
+    calcTotal();
+  </script>
+<body>
+  <form method="post" action="order.php">
+    商品：<input type="text" name="item"><br>
+    數量：<input type="number" name="qty" id="qty" value="1"><br>
+    價格：<input type="text" name="price" id="price" value="100"><br>
+    小計：<span id="total"></span><br>
+    <input type="submit" value="送出訂單">
+  </form>
+</body>
+</html>
